@@ -32,7 +32,7 @@ _Around 50 lines of POSIX `sh`. It reads a plain text file, pipes it through `fz
 ## Install
 
 ```sh
-git clone https://github.com/USER/ytr.git
+git clone https://github.com/leolimasnts/ytr.git
 cd ytr
 make install
 ```
@@ -43,7 +43,7 @@ elsewhere:
 Or, since it is a single file, skip the repo entirely:
  
 ```sh
-curl -o ~/.local/bin/ytr https://raw.githubusercontent.com/USER/ytr/master/src/ytr.sh
+curl -o ~/.local/bin/ytr https://raw.githubusercontent.com/leolimasnts/ytr/master/src/ytr.sh
 chmod +x ~/.local/bin/ytr
 ```
 

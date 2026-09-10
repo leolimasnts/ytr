@@ -37,6 +37,7 @@ EOF
 hl=$(printf '\033[1;36m')
 rst=$(printf '\033[0m')
 bold=$(printf '\033[1m')
+clr=$(printf '\r\033[2K')
 
 clear
 printf '%s' "$bold"
@@ -50,6 +51,8 @@ cat <<'EOF'
 EOF
 printf '%s' "$rst"
 
+printf '\n    tuning in...'
+
 mpv \
   --no-video \
   --shuffle \
@@ -59,5 +62,5 @@ mpv \
   --msg-level=all=error,statusline=status \
   --term-osd=force \
   --term-osd-bar=yes \
-  --term-status-msg="\n    You are listening to ${hl}\${media-title}${rst} from ${hl}$name${rst}\n\n    \${time-pos} / \${duration}" \
+  --term-status-msg="${clr}\n    You are listening to ${hl}\${media-title}${rst} from ${hl}$name${rst}\n\n    \${time-pos} / \${duration}" \
   "$url"

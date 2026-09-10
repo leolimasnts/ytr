@@ -37,7 +37,7 @@ EOF
 hl=$(printf '\033[1;36m')
 rst=$(printf '\033[0m')
 bold=$(printf '\033[1m')
-clr=$(printf '\r\033[2K')
+clr=$(printf '\0338\033[J') # restore saved cursor, erase to end of screen
 
 clear
 printf '%s' "$bold"
@@ -51,6 +51,7 @@ cat <<'EOF'
 EOF
 printf '%s' "$rst"
 
+printf '\0337'
 printf '\n    tuning in...'
 
 mpv \

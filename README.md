@@ -11,7 +11,7 @@
 <b>youtube radio</b>
 </div>
 
-Pick a channel or playlist and play it as a shuffled audio stream in.
+Pick a channel or playlist and play it as a shuffled audio stream.
 No video, no browser, no tab left open for six hours. Just a station and a status line.
 
 _Around 60 lines of POSIX `sh`. It reads a plain text file, pipes it through `fzf` and hands the list to `mpv`. There is nothing else to it._

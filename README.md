@@ -9,14 +9,19 @@
 </pre>
 
 <b>youtube radio</b>
-
 </div>
 
 Pick a channel with `fzf`, and its uploads play as a shuffled audio stream in `mpv`.
 No video, no browser, no tab left open for six hours. Just a station and a status line.
 
-Around 50 lines of POSIX `sh`. It reads a plain text file, pipes it through `fzf`, asks
-`yt-dlp` for the video IDs, and hands the list to `mpv`. There is nothing else to it.
+_Around 50 lines of POSIX `sh`. It reads a plain text file, pipes it through `fzf`, asks
+`yt-dlp` for the video IDs, and hands the list to `mpv`. There is nothing else to it._
+
+---
+<div align="center">
+       
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T8E821CUH4)
+</div>
 
 ## Requirements
 
@@ -27,19 +32,23 @@ Around 50 lines of POSIX `sh`. It reads a plain text file, pipes it through `fzf
 ## Install
 
 ```sh
+git clone https://github.com/USER/ytr.git
+cd ytr
 make install
 ```
 
-Installs to `~/.local/bin/ytr`. Override the destination if you want it elsewhere:
+`make install` puts it in `~/.local/bin/ytr`. Override the destination if you want it
+elsewhere:
 
+Or, since it is a single file, skip the repo entirely:
+ 
 ```sh
-make install PREFIX=/usr/local          # /usr/local/bin/ytr
-make install BINDIR=/opt/bin            # /opt/bin/ytr
-make install DESTDIR=/tmp/pkg           # for packaging
+curl -o ~/.local/bin/ytr https://raw.githubusercontent.com/USER/ytr/master/src/ytr.sh
+chmod +x ~/.local/bin/ytr
 ```
 
 Make sure the target directory is on your `$PATH`. To remove it again:
-
+ 
 ```sh
 make uninstall
 ```

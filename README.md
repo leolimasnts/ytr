@@ -11,11 +11,10 @@
 <b>youtube radio</b>
 </div>
 
-Pick a channel with `fzf`, and its uploads play as a shuffled audio stream in `mpv`.
+Pick a channel or playlist and play it as a shuffled audio stream in.
 No video, no browser, no tab left open for six hours. Just a station and a status line.
 
-_Around 50 lines of POSIX `sh`. It reads a plain text file, pipes it through `fzf`, asks
-`yt-dlp` for the video IDs, and hands the list to `mpv`. There is nothing else to it._
+_Around 60 lines of POSIX `sh`. It reads a plain text file, pipes it through `fzf` and hands the list to `mpv`. There is nothing else to it._
 
 ---
 <div align="center">

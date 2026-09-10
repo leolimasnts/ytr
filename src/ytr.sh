@@ -1,4 +1,5 @@
 #!/bin/sh
+# ytr - pick a channel or playlist, then play its videos as audio.
 # config: one "name|tag|url" per line; short lines are ignored, so # comments work.
 
 config="${XDG_CONFIG_HOME:-$HOME/.config}/ytr/channels"
@@ -33,16 +34,6 @@ IFS='|' read -r name tag url <<EOF
 $line
 EOF
 
-playlist=$(mktemp) || exit 1
-trap 'rm -f "$playlist"' EXIT INT TERM HUP
-
-echo "ytr: fetching $name..." >&2
-yt-dlp --flat-playlist --print 'https://youtube.com/watch?v=%(id)s' "$url" >"$playlist" || exit 1
-[ -s "$playlist" ] || {
-  echo "ytr: no tracks" >&2
-  exit 1
-}
-
 hl=$(printf '\033[1;36m')
 rst=$(printf '\033[0m')
 bold=$(printf '\033[1m')
@@ -64,8 +55,9 @@ mpv \
   --shuffle \
   --cache=yes \
   --ytdl-format='bestaudio/best' \
+  --ytdl-raw-options=yes-playlist= \
   --msg-level=all=error,statusline=status \
   --term-osd=force \
   --term-osd-bar=yes \
   --term-status-msg="\n    You are listening to ${hl}\${media-title}${rst} from ${hl}$name${rst}\n\n    \${time-pos} / \${duration}" \
-  --playlist="$playlist"
+  "$url"

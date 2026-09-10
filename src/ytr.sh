@@ -25,7 +25,7 @@ EOF
   echo "ytr: created $config" >&2
 fi
 
-line=$(awk -F'|' 'NF>=3 { printf "%-22s \033[36m[%s]\033[0m\t%s\n", $1, $2, $0 }' "$config" |
+line=$(awk -F'|' 'NF>=3 { printf "%-22s \033[36m%s\033[0m\t%s\n", $1, $2, $0 }' "$config" |
   fzf --ansi --prompt='radio> ' --delimiter='\t' --with-nth=1 |
   cut -f2)
 [ -n "$line" ] || exit 0

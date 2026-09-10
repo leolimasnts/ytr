@@ -100,22 +100,6 @@ Playback is ordinary `mpv`, so the usual keys apply:
 | `←` `→` | seek |
 | `q` | quit |
 
-## How it works
-
-1. `awk` turns the config into a display column plus the raw line, and `fzf` picks one.
-2. `yt-dlp --flat-playlist` lists the channel's video IDs. This is the cheap listing pass, not a full extraction, so it finishes in a couple of seconds even on large channels.
-3. The IDs go into a temporary file, which `mpv --shuffle --no-video` plays and the script removes on exit.
-
-The track list is fetched once, at startup. New uploads show up the next time you run `ytr`.
-
-## Troubleshooting
-
-**`ytr: no tracks`** — `yt-dlp`'s own error is printed just above this line and is the useful one. Usually the URL is wrong, or `yt-dlp` is out of date. Update it first; YouTube changes things often and `yt-dlp` is the part that breaks.
-
-**Playback stutters** — raise the cache in the `mpv` invocation, e.g. `--cache-secs=60`.
-
-**No sound but it looks like it is playing** — check `mpv` on its own first. If `mpv` works elsewhere, `ytr` is not the problem.
-
 ## License
 
 MIT.

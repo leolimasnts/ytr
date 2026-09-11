@@ -26,7 +26,7 @@ _Around 60 lines of POSIX `sh`. It reads a plain text file, pipes it through `fz
 
 - [`fzf`](https://github.com/junegunn/fzf) — the channel picker
 - [`mpv`](https://mpv.io) — playback
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) — resolving the channel to a track list
+- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp) — mpv playing dependencie
 
 ## Install
 
